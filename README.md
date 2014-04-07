@@ -1,7 +1,27 @@
 # generator-frontcow [![Build Status](https://secure.travis-ci.org/bcabanes/generator-frontcow.png?branch=master)](https://travis-ci.org/bcabanes/generator-frontcow)
 
-> [Yeoman](http://yeoman.io) generator
+![](http://i.imgur.com/rBXsITu.jpg)
 
+> FrontCow is a Yeoman generator that initialize your front-end workflow in a minute!
+
+##What is FrontCow
+Cute logo, big time saving... When it comes to make a website you have to set your workflow, prepare your libraries, your files structures. FrontCow handle all this to save your time, lunch it and go grab a coffee, when you'll be back, you're ready to work.
+
+#### Foundation 5
+FrontCow use the amazing [Foundation5 front-end framework](http://foundation.zurb.com/) powered by Zurb, which is "The most advanced responsive front-end framework in the world".
+
+#### Bourbon + FontAwesome
+FrontCow gives you the possibility to add the [Bourbon SASS library](http://bourbon.io/) to your project to get a lot a nice SASS mixins, and [FontAwesome](http://fortawesome.github.io/Font-Awesome/), the popular iconic webfont.
+
+#### Atomic Design
+FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) architecture in mind, so it will create and organize your SCSS in a particulare file system:
+
+```
+file system here
+```
+
+### Composition
+-- soon...
 
 ## Getting Started
 
@@ -33,6 +53,37 @@ Finally, initiate the generator:
 
 ```
 $ yo frontcow
+```
+
+Import libraries by bower
+
+```
+$ bower install
+```
+
+### FrontCow Grunt Tasks
+The default Grunt task starts the workflow with SASS watch & build, create a localhost and open you chrome browser to be ready to work:
+
+```
+$ grunt
+```
+
+There is a command to validate the JS with jshint:
+
+```
+$ grunt validate-js
+```
+
+Publish your work: Generated all your distribution files into your dist folder, ready to be published (very magical):
+
+```
+$ grunt publish
+```
+
+Create a localhost on the dist folder to see the result of your generated files:
+
+```
+$ grunt server-dist
 ```
 
 ### Getting To Know Yeoman

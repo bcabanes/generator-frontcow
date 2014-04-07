@@ -13,7 +13,7 @@ module.exports = function(grunt) {
                 ],
                 outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
                 sourceComments: 'map',
-                // sourceMap: 'app/css/app.css.map' // Not implemented yet see => https://github.com/sindresorhus/grunt-sass/issues/57
+                // sourceMap: 'app/css/app.css.map'
             },
             dist: {
                 files: {
@@ -143,9 +143,9 @@ module.exports = function(grunt) {
     grunt.registerTask('build', ['sass']);
     grunt.registerTask('default', ['build', 'connect:app', 'open:app', 'watch']);
 
-    grunt.registerTask('livereload', ['connect:app', 'watch:livereload']); // add this commande to just set the server and the livereload
+    grunt.registerTask('livereload', ['connect:app', 'watch:livereload']);
     grunt.registerTask('validate-js', ['jshint']);
-    grunt.registerTask('server-dist', ['connect:dist', 'open:dist']); // Not Working?
+    grunt.registerTask('server-dist', ['connect:dist', 'open:dist']);
     grunt.registerTask('publish', ['clean', 'copy:dist', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'clean:tmp']);
 
 };

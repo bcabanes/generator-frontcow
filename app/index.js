@@ -101,7 +101,7 @@ FrontCow.prototype.app = function app() {
             this.mkdir('app/scss/'+this.projectNameSafe+'/utilities');
                 this.mkdir('app/scss/'+this.projectNameSafe+'/utilities/animations');
             this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss');
-        this.copy('css/template_override.css', 'app/css/app_override.css');
+        this.copy('css/template_override.css', 'app/css/main_override.css');
 };
 
 
