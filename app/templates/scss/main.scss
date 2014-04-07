@@ -1,0 +1,29 @@
+/**
+ * This is the main css file
+ * Import all dependencies here
+ */
+
+/**
+ * Import: Normalize
+ */
+@import "normalize"; // imported by bower (foundation package)
+
+<% if (bourbon){ %>
+/**
+ * Import: Bourbon mixin library
+ */
+@import "_bourbon"; // imported by bower
+<% } %>
+
+/**
+ * Import: Foundation framework (5)
+ */
+@import "_foundation-settings"; // import custom settings
+@import "foundation"; // imported by bower
+
+
+
+/**
+ * Import: custom theme | Voxit - Showcase
+ */
+@import "_<%= projectNameSafe %>";

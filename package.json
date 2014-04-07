@@ -1,0 +1,40 @@
+{
+  "name": "generator-frontcow",
+  "version": "0.1.0",
+  "description": "FrontCow is a Yeoman generator that initialize your front-end workflow in a minute. FrontCow use the amazing Foundation 5 front-end framework.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "bcabanes/generator-frontcow",
+  "author": {
+    "name": "ben",
+    "email": "",
+    "url": "https://github.com/bcabanes"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "foundation",
+    "foundation5",
+    "atomic design",
+    "bourbon",
+    "polyfill"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

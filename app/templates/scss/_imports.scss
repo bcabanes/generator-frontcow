@@ -1,0 +1,64 @@
+/* ==========================================================================
+   <%= projectNameSafe %> : SASS & ATOMIC DESIGN
+   ========================================================================== */
+
+/**
+ * This is the control panel where all of the atomic design elements are imported.
+ */
+
+/** Utilities
+========================================================================== */
+/**
+ * Global classes, mixins and styles that can be used anywhere and at any time.
+ */
+
+
+
+/** Quarks
+========================================================================== */
+/*
+ * Styles reserved for default HTML elements only. Default paragraphs, links, lists and micros. Style
+ * guide stuff.
+ */
+
+
+/** Atoms
+========================================================================== */
+/*
+ * CSS objects that can be extended from and into other elements of the site. Think of these as
+ * the default relationships that can be used again and again without bloating the codebase.
+ */
+
+
+/** Molecules
+========================================================================== */
+/*
+ * Sometimes we need one-off structures, such as a banner or navigation element or footer, that we
+ * don’t intend to replicate. This is where we can combine multiple quarks and atoms, without
+ * interfering with any of our global styles.
+ */
+
+
+/** Organisms
+========================================================================== */
+/*
+ * Organisms are made of many molecules combined together. This is a bigger part of design than molecules,
+ * they possibly constitue the main goal of a template. The CSS rules here, has to be organism centric and
+ * specific.
+ */
+
+
+/** Templates
+========================================================================== */
+/*
+ * Templates are made of one or a multiple of organisms. Sometime you need to adjust one or many CSS rules
+ * to finish the mockup or wireframe of the page. The CSS rules has to be verry light and must be out of
+ * anyone organism scope.
+ */
+
+
+/** Pages
+========================================================================== */
+/*
+ * Pages are the results of the Atomic Design process. This is the end process step and the CSS rules
+ * MUST be out of the templates scope.

@@ -1,0 +1,8 @@
+# Temporary files
+.tmp
+
+# Bower
+app/bower_components
+
+# Modules folder
+node_modules

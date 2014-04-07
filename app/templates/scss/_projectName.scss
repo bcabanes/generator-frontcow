@@ -1,0 +1,8 @@
+/* ==========================================================================
+   <%= ProjectName %> : Global import and setter
+   ========================================================================== */
+
+/**
+ * Load the default import file to load code design
+ */
+@import "<%= projectNameSafe %>/_imports";
