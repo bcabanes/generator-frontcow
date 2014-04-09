@@ -1,6 +1,6 @@
 {
   "name": "generator-frontcow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "FrontCow is a Yeoman generator that initialize your front-end workflow in a minute. FrontCow use the amazing Foundation 5 front-end framework.",
   "license": "MIT",
   "main": "app/index.js",
