@@ -16,9 +16,35 @@ FrontCow gives you the possibility to add the [Bourbon SASS library](http://bour
 #### Atomic Design
 FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) architecture in mind, so it will create and organize your SCSS in a particulare file system:
 
-```
-file system here
-```
+    ├── app
+    │   ├── css
+    │   │   ├── main.css _(generated)_
+    │   │   └── main_override.css
+    │   ├── fonts
+    │   ├── js
+    │   ├── medias
+    │   │   ├── images
+    │   │   └── tmp
+    │   └── scss
+    │   │   ├── _your-project-name_
+    │   │   │   ├── quarks
+    │   │   │   ├── atoms
+    │   │   │   ├── molecules
+    │   │   │   ├── organisms
+    │   │   │   ├── templates
+    │   │   │   ├── pages
+    │   │   │   ├── utilites
+    │   │   │   └── _imports.scss
+    │   │   ├── _foundation-settings.scss _(foundation custom settings)_
+    │   │   ├── __your-project-name_.scss
+    │   │   └── main.scss
+    │   └── index.html
+    ├── dist
+    ├── .editorconfig
+    ├── .gitignore
+    ├── .jshintrc
+    ├── LICENSE
+    └── package.json
 
 ### Composition
 -- soon...
