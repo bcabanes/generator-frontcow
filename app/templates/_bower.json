@@ -4,6 +4,6 @@
         "foundation": "zurb/bower-foundation"
         <% if (fontAwesome) { %> , "font-awesome": "~4.0.3" <% } %>
         <% if (bourbon) { %> , "bourbon": "~3.1" <% } %>
-        <% if (polyfill) { %>, "Respond.js": "~1.4.2" <% } %>
+        <% if (polyfill) { %>, "respond": "~1.4.2" <% } %>
   }
 }
