@@ -46,8 +46,23 @@ FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post
     ├── LICENSE
     └── package.json
 
-### Composition
--- soon...
+### Features
+**Available Scaffolding Options:**
+
+- Project/Site naming
+- CSS Preprocessing with [SCSS](http://sass-lang.com/)
+- IE8+ Support via [RespondJS](https://github.com/scottjehl/Respond)
+
+**Included by default:**
+
+- Template inspiration from [HTML5 Boilerplate](http://html5boilerplate.com/)
+- Feature detection with [Modernizr](http://modernizr.com/)
+- JavaScript Linting with [JSHint](http://www.jshint.com/)
+- Built in preview server with LiveReload
+- [.editorconfig](http://editorconfig.org/) for consistent coding styles within text editors
+- JavaScript unit testing with [Jasmine](http://jasmine.github.io/)
+- Automatic build process that includes concatenation, image optimization, CSS and HTML minification, and JS uglification.
+- [Sourcemaps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) for JavaScript and either SCSS.
 
 ## Getting Started
 
@@ -69,48 +84,17 @@ $ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-frontcow from npm, run:
-
-```
-$ npm install -g generator-frontcow
-```
-
-Finally, initiate the generator:
-
-```
-$ yo frontcow
-```
-
-Import libraries by bower
-
-```
-$ bower install
-```
+1. Install generato-frontcow form npm, run: <br> `$ npm install -g generator-frontcow`
+2. Initiate the generator, run: <br> `$ yo frontcow`
+3. Import bower libraries, run: <br> `$ bower install`
 
 ### FrontCow Grunt Tasks
-The default Grunt task starts the workflow with SASS watch & build, create a localhost and open you chrome browser to be ready to work:
 
-```
-$ grunt
-```
+- `$ grunt` <br> Default Grunt task starts the workflow with SASS watch & build, create a localhost and open you chrome browser to be ready to work.
+- `$ grunt validate-js` <br> Validate the JS with jshint.
+- `$ grunt publish` <br> Publish your work: Generated all your distribution files into your dist folder, ready to be published (very magical).
+- `$ grunt server-dist` <br> Create a localhost on the dist folder to see the result of your generated files.
 
-There is a command to validate the JS with jshint:
-
-```
-$ grunt validate-js
-```
-
-Publish your work: Generated all your distribution files into your dist folder, ready to be published (very magical):
-
-```
-$ grunt publish
-```
-
-Create a localhost on the dist folder to see the result of your generated files:
-
-```
-$ grunt server-dist
-```
 
 ### Getting To Know Yeoman
 
