@@ -51,6 +51,7 @@ FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post
 
 - Project/Site naming
 - CSS Preprocessing with [SCSS](http://sass-lang.com/)
+- [Bourbon](http://bourbon.io/) SASS Mixin library
 - IE8+ Support via [RespondJS](https://github.com/scottjehl/Respond)
 
 **Included by default:**
