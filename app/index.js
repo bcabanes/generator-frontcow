@@ -27,7 +27,8 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Project Name
         type: "input",
         name: 'projectName',
-        message: 'What is uour project name?'
+        message: 'What is uour project name?',
+        default: 'myproject'
     },{
         // FontAwesome
         type: 'confirm',
@@ -55,8 +56,7 @@ FrontCow.prototype.askQuestions = function askQuestions() {
 
     // ProjectName
     this.projectName = props.projectName;
-    this.projectNameSafe = RemoveAccents(this.projectName.toLowerCase());
-    // this.projectNameSafe = this.projectNameSafe.stringToReplace.replace(/[^\w\s]/gi, '');
+    this.projectNameSafe = _.slugify(this.projectName);
     // FontAwesome
     this.fontAwesome = props.fontAwesome;
     // Bourbon
@@ -103,20 +103,3 @@ FrontCow.prototype.app = function app() {
             this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss');
         this.copy('css/template_override.css', 'app/css/main_override.css');
 };
-
-
-function RemoveAccents(strAccents) {
-    var strAccents = strAccents.split('');
-    var strAccentsOut = new Array();
-    var strAccentsLen = strAccents.length;
-    var accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
-    var accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
-    for (var y = 0; y < strAccentsLen; y++) {
-        if (accents.indexOf(strAccents[y]) != -1) {
-            strAccentsOut[y] = accentsOut.substr(accents.indexOf(strAccents[y]), 1);
-        } else
-            strAccentsOut[y] = strAccents[y];
-    }
-    strAccentsOut = strAccentsOut.join('');
-    return strAccentsOut;
-}
