@@ -82,7 +82,7 @@ FrontCow.prototype.app = function app() {
     this.mkdir('app/fonts');
     this.mkdir('app/medias');
         this.mkdir('app/medias/images');
-        this.copy('medias/images/frontcow.jpg', 'medias/images/frontcow.jpg');
+        this.copy('medias/images/frontcow.jpg', 'app/medias/images/frontcow.jpg');
         this.mkdir('app/medias/tmp');
     this.mkdir('app/js');
         this.mkdir('app/js/modules');
