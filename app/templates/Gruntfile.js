@@ -7,13 +7,13 @@ module.exports = function(grunt) {
         sass: {
             options: {
                 includePaths: [
-                    <% if (bourbon) { %>'app/bower_components/bourbon/app/assets/stylesheets',<% } %>
+                    <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
                     <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
                     'app/bower_components/foundation/scss'
                 ],
-                outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
-                sourceComments: 'map',
-                // sourceMap: 'app/css/app.css.map'
+                outputStyle: 'compressed' // 'nested' (default), 'expanded', 'compact', 'compressed'
+                // sourceMap: 'app.css.map'
+                // sourceComments: 'map',
             },
             dist: {
                 files: {
@@ -42,6 +42,17 @@ module.exports = function(grunt) {
             }
         },
         copy: {
+            fontawesome: {
+              files:[
+                {
+                  cwd:'app/bower_components/font-awesome/fonts/',
+                  expand: true,
+                  flatten: true,
+                  src: '**',
+                  dest: 'app/fonts/'
+                }
+              ]
+            },
             dist: {
                 files: [
                     {
@@ -58,6 +69,20 @@ module.exports = function(grunt) {
                     }<% } %>
                 ]
             }
+        },
+
+        imagemin: {
+          dynamic: {
+            options: {
+              optimizationLevel: 3
+            },
+            files: [{
+              expand: true,
+              cwd: 'app/medias/',
+              src: ['**/*.{png,jpg,gif,ico}'],
+              dest: 'dist/medias/'
+            }]
+          }
         },
 
         useminPrepare: {
@@ -88,7 +113,7 @@ module.exports = function(grunt) {
                 tasks: ['sass']
             },
             sass: {
-                files: 'app/scss/**/*.scss',
+                files: ['app/scss/**/*.scss', '!app/scss/**/*.scss'],
                 tasks: ['sass']
             },
             livereload: {
@@ -141,7 +166,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-open');
 
     grunt.registerTask('build', ['sass']);
-    grunt.registerTask('default', ['build', 'connect:app', 'open:app', 'watch']);
+    grunt.registerTask('default', ['build', 'copy:fontawesome', 'connect:app', 'open:app', 'watch']);
 
     grunt.registerTask('livereload', ['connect:app', 'watch:livereload']);
     grunt.registerTask('validate-js', ['jshint']);

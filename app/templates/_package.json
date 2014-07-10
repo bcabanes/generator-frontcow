@@ -1,6 +1,6 @@
 {
   "name": "FrontCow",
-  "version": "0.0.1",
+  "version": "0.1.14",
   "description": "This is frontend generator to get a work environment in minute. StandUp uses Foundation 5 (frontend framework), bourbon (sass library) and fontawesome (icon font), an atomic design SCSS organization.",
   "keywords": [
     "frontcow",
@@ -30,32 +30,32 @@
     "test": "mocha"
   },
   "dependencies": {
-    "yeoman-generator": "~0.14.0"
+    "yeoman-generator": "~0.17"
   },
   "devDependencies": {
-    "node-sass": "~0.8.1",
-    "grunt": "~0.4.2",
+    "node-sass": "~0.9",
+    "grunt": "~0.4",
     "grunt-contrib-watch": "git://github.com/gruntjs/grunt-contrib-watch",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-requirejs": "~0.4.0",
-    "grunt-bower-requirejs": "~0.8.4",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-connect": "~0.6.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "0.3.2",
-    "grunt-contrib-imagemin": "~0.5.0",
-    "grunt-usemin": "~2.0.2",
-    "grunt-sass": "~0.10.0",
-    "jshint-stylish": "~0.1.5",
-    "grunt-open": "~0.2.3"
+    "grunt-contrib-clean": "~0.5",
+    "grunt-requirejs": "~0.4",
+    "grunt-bower-requirejs": "~0.11",
+    "grunt-contrib-copy": "~0.5",
+    "grunt-contrib-jshint": "~0.10",
+    "grunt-contrib-connect": "~0.8",
+    "grunt-contrib-concat": "~0.4",
+    "grunt-contrib-uglify": "0.5",
+    "grunt-contrib-imagemin": "~0.7",
+    "grunt-usemin": "~2.3",
+    "grunt-sass": "~0.14",
+    "jshint-stylish": "~0.3",
+    "grunt-open": "~0.2"
   },
   "peerDependencies": {
-    "yo": ">=1.0.0"
+    "yo": ">=1.0"
   },
   "engines": {
-    "node": ">=0.8.0",
-    "npm": ">=1.2.10"
+    "node": ">=0.9",
+    "npm": ">=1.2"
   },
   "licenses": [
     {

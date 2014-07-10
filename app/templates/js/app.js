@@ -15,7 +15,7 @@ var app = (function() {
 
 })();
 
-(function() {
+(function($) {
 
     'use strict';
 
@@ -26,4 +26,4 @@ var app = (function() {
     app.publicFunction();
     app.userAgentInit();
 
-})();
+})(jQuery);

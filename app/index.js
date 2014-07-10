@@ -3,7 +3,6 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-
 var FrontCow = module.exports = function FrontCow(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
@@ -16,6 +15,9 @@ var FrontCow = module.exports = function FrontCow(args, options, config) {
 
 util.inherits(FrontCow, yeoman.generators.Base);
 
+/**
+ * FrontCow - AskQuestions
+ */
 FrontCow.prototype.askQuestions = function askQuestions() {
   var cb = this.async();
 
@@ -25,9 +27,9 @@ FrontCow.prototype.askQuestions = function askQuestions() {
   var prompts = [
     {
         // Project Name
-        type: "input",
+        type: 'input',
         name: 'projectName',
-        message: 'What is uour project name?',
+        message: 'What is your project name?',
         default: 'myproject'
     },{
         // FontAwesome
@@ -45,10 +47,10 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Use polyfill for Foundation 5 (IE*)
         type: 'confirm',
         name: 'polyfill',
-        message: 'Would you like to include polyfills to make Foundation working on IE8 (just the CSS)?',
+        message: 'Would you like to include Respond polyfill to make Foundation working on IE8 (just the CSS)?',
         default: false
     }
-];
+  ];
 
   this.prompt(prompts, function (props) {
     // `props` is an object passed in containing the response values, named in
@@ -68,6 +70,9 @@ FrontCow.prototype.askQuestions = function askQuestions() {
   }.bind(this));
 };
 
+/**
+ * FrontCow - Build project's files
+ */
 FrontCow.prototype.app = function app() {
     this.mkdir('dist');
     this.mkdir('app');

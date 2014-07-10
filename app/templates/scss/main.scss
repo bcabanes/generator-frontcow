@@ -21,7 +21,12 @@
 @import "_foundation-settings"; // import custom settings
 @import "foundation"; // imported by bower
 
-
+<% if (fontawesome){ %>
+/**
+ * Import: Font Awesome
+ */
+@import "font-awesome"; // imported by bower
+<% } %>
 
 /**
  * Import: custom theme | <%= projectName %>

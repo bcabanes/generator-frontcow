@@ -2,8 +2,8 @@
     "name": "FrontCow",
     "dependencies": {
         "foundation": "zurb/bower-foundation"
-        <% if (fontAwesome) { %> , "font-awesome": "~4.0.3" <% } %>
-        <% if (bourbon) { %> , "bourbon": "~3.1" <% } %>
+        <% if (fontAwesome) { %> , "font-awesome": "~4.1" <% } %>
+        <% if (bourbon) { %> , "bourbon": "~3" <% } %>
         <% if (polyfill) { %>, "respond": "~1.4.2" <% } %>
   }
 }
