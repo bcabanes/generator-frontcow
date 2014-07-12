@@ -1,5 +1,5 @@
 <!doctype html>
-<!--[if IE 9]>    <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if lte IE 9]>    <html class="no-js lt-ie10" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <![endif]-->
   <head>
 
@@ -23,12 +23,12 @@
     <link href="css/main_override.css" rel="stylesheet">
     <!-- endbuild -->
 
-    <!-- build:js /js/vendor/modernizr.js -->
+    <!-- build:js js/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
     <!--[if lt IE 9]>
-        <!-- build:js /js/vendor/respond.min.js -->
+        <!-- build:js js/vendor/respond.min.js -->
         <script src="/bower_components/Respond/dest/respond.min.js"></script>
         <!-- endbuild -->
     <![endif]-->
@@ -65,7 +65,7 @@
 
     <% if(polyfill) { %>
         <!--[if lt IE 9]>
-            <!-- build:js /js/vendor/rem.min.js -->
+            <!-- build:js js/vendor/rem.min.js -->
             <script src="/bower_components/REM-unit-polyfill/js/rem.min.js"></script>
             <!-- endbuild -->
         <![endif]-->
@@ -74,17 +74,17 @@
     <% if(polyfill) { %>
         <script>window.jQuery||document.write('<script src="/bower_components/jquery/jquery.min.js"><\/script>');</script>
     <% }else{ %>
-        <!-- build:js /js/vendor/jquery.min.js -->
+        <!-- build:js js/vendor/jquery.min.js -->
         <script src="/bower_components/jquery/jquery.min.js"></script>
         <!-- endbuild -->
     <% } %>
 
-    <!-- build:js /js/vendor/foundation.min.js -->
+    <!-- build:js js/vendor/foundation.min.js -->
     <script src="/bower_components/foundation/js/foundation.min.js"></script>
     <!-- endbuild -->
 
     <!-- Load Modules -->
-    <!-- build:js /js/app.js -->
+    <!-- build:js js/app.js -->
     <script src="/js/app.js"></script>
     <!-- endbuild -->
     <!-- end of Load Modules -->
