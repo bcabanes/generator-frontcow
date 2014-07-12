@@ -1,6 +1,6 @@
 {
   "name": "FrontCow",
-  "version": "0.0.1",
+  "version": "0.1.14",
   "description": "This is frontend generator to get a work environment in minute. StandUp uses Foundation 5 (frontend framework), bourbon (sass library) and fontawesome (icon font), an atomic design SCSS organization.",
   "keywords": [
     "frontcow",
