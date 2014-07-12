@@ -1,7 +1,8 @@
-var app = (function() {
-
+var App = (function () {
+    
     'use strict';
-    var privateVariable = 'app fired!',
+
+    var privateVariable = 'App fired!',
         docElem = document.documentElement;
 
     return {
@@ -15,7 +16,7 @@ var app = (function() {
 
 })();
 
-(function() {
+(function ($) {
 
     'use strict';
 
@@ -23,7 +24,7 @@ var app = (function() {
     $(document).foundation();
 
     // Some examples
-    app.publicFunction();
-    app.userAgentInit();
+    App.publicFunction();
+    App.userAgentInit();
 
-})();
+})(jQuery);

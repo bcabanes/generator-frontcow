@@ -31,7 +31,7 @@
     "atomic design",
     "bourbon",
     "polyfill",
-    "font awesome"
+    "fontawesome"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
