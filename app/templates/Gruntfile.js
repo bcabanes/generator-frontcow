@@ -41,7 +41,16 @@ module.exports = function(grunt) {
                 src: ['.tmp']
             }
         },
+
         copy: {
+            app: {
+                files: [
+                    {
+                        src: 'app/bower_components/jquery/dist/jquery.min.js'
+                        dest: 'dist/js/vendor/jquery.min.js'
+                    }
+                ]
+            },
             dist: {
                 files: [
                     {
@@ -49,7 +58,12 @@ module.exports = function(grunt) {
                         cwd:'app/',
                         src: ['css/**', 'js/**', '!js/modules/**', '!images/**', 'fonts/**', '**/*.html', '**/*.svg', '**/*.ico', '!**/*.scss', '!bower_components/**'],
                         dest: 'dist/'
-                    }<% if (fontAwesome) { %>,{
+                    },
+                    {
+                        src: 'app/bower_components/jquery/dist/jquery.min.js'
+                        dest: 'dist/js/vendor/jquery.min.js'
+                    }<% if (fontAwesome) { %>,
+                    {
                         expand: true,
                         flatten: true,
                         src: ['app/bower_components/font-awesome/fonts/**'],
@@ -59,6 +73,23 @@ module.exports = function(grunt) {
                 ]
             }
         },
+
+        replace: {
+            options: {
+                patterns: [{
+                    match: '/@jQueryCDN/g',
+                    replacement: function() {
+                        var jQconf = grunt.file.readJSON('app/bower_components/jquery/bower.json');
+                        return '//ajax.googleapis.com/ajax/libs/jquery/' + jQconf.version + '/jquery.min.js'
+                    },
+                    expression: true
+                }]
+            },
+            files: {
+                src:  'app/index.html',
+                dest: 'dist/index.html'
+            }
+        }
 
         useminPrepare: {
             html: 'app/*.html',
@@ -115,6 +146,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         open: {
             app: {
                 path: 'http://127.0.0.1:9000/',
@@ -146,6 +178,6 @@ module.exports = function(grunt) {
     grunt.registerTask('livereload', ['connect:app', 'watch:livereload']);
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist', 'open:dist']);
-    grunt.registerTask('publish', ['clean', 'copy:dist', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'clean:tmp']);
+    grunt.registerTask('publish', ['clean', 'copy:dist', 'replace', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'clean:tmp']);
 
 };
