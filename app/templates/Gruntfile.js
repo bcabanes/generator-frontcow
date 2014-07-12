@@ -46,8 +46,8 @@ module.exports = function(grunt) {
             app: {
                 files: [
                     {
-                        src: 'app/bower_components/jquery/dist/jquery.min.js'
-                        dest: 'dist/js/vendor/jquery.min.js'
+                        src: 'app/bower_components/jquery/dist/jquery.min.js',
+                        dest: 'app/js/vendor/jquery.min.js'
                     }
                 ]
             },
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
                         dest: 'dist/'
                     },
                     {
-                        src: 'app/bower_components/jquery/dist/jquery.min.js'
+                        src: 'app/bower_components/jquery/dist/jquery.min.js',
                         dest: 'dist/js/vendor/jquery.min.js'
                     }<% if (fontAwesome) { %>,
                     {
@@ -75,21 +75,20 @@ module.exports = function(grunt) {
         },
 
         replace: {
-            options: {
-                patterns: [{
-                    match: '/@jQueryCDN/g',
-                    replacement: function() {
-                        var jQconf = grunt.file.readJSON('app/bower_components/jquery/bower.json');
-                        return '//ajax.googleapis.com/ajax/libs/jquery/' + jQconf.version + '/jquery.min.js'
-                    },
-                    expression: true
-                }]
-            },
-            files: {
-                src:  'app/index.html',
-                dest: 'dist/index.html'
+            dist: {
+                options: {
+                    patterns: [{
+                        match: 'jqueryVersion',
+                        replacement: function() {
+                            return grunt.file.readJSON('bower_components/jquery/bower.json').version;
+                        }
+                    }]
+                },
+                files: {
+                    'dist/index.html': 'dist/index.html'
+                }
             }
-        }
+        },
 
         useminPrepare: {
             html: 'app/*.html',
@@ -169,15 +168,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-open');
 
     grunt.registerTask('build', ['sass']);
-    grunt.registerTask('default', ['build', 'connect:app', 'open:app', 'watch']);
+    grunt.registerTask('default', ['build', 'copy:app', 'connect:app', 'open:app', 'watch']);
 
     grunt.registerTask('livereload', ['connect:app', 'watch:livereload']);
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist', 'open:dist']);
-    grunt.registerTask('publish', ['clean', 'copy:dist', 'replace', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'clean:tmp']);
+    grunt.registerTask('publish', ['clean', 'copy:dist', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'replace', 'clean:tmp']);
 
 };

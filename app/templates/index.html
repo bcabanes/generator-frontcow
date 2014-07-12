@@ -64,14 +64,14 @@
 
 
     <% if(polyfill) { %>
-        <!--[if lt IE 9]>
-            <!-- build:js js/vendor/rem.min.js -->
-            <script src="/bower_components/REM-unit-polyfill/js/rem.min.js"></script>
-            <!-- endbuild -->
-        <![endif]-->
+    <!--[if lt IE 9]>
+        <!-- build:js js/vendor/rem.min.js -->
+        <script src="/bower_components/REM-unit-polyfill/js/rem.min.js"></script>
+        <!-- endbuild -->
+    <![endif]-->
     <% } %>
 
-    <script src="@jQueryCDN"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/@@jqueryVersion/jquery.min.js"></script>
     <script>window.jQuery||document.write('<script src="js/vendor/jquery.min.js"><\/script>');</script>
 
     <!-- build:js js/vendor/foundation.min.js -->
