@@ -27,7 +27,7 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Project Name
         type: "input",
         name: 'projectName',
-        message: 'What is uour project name?',
+        message: 'What is your project name?',
         default: 'myproject'
     },{
         // FontAwesome
@@ -39,7 +39,7 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Bourbon
         type: 'confirm',
         name: 'bourbon',
-        message: 'Would you like to include The bourbon SASS library?',
+        message: 'Would you like to include The Bourbon SASS library?',
         default: true
     },{
         // Use polyfill for Foundation 5 (IE*)
