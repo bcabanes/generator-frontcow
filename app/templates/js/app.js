@@ -1,7 +1,7 @@
 var app = (function() {
 
     'use strict';
-    var privateVariable = 'app fired!',
+    var privateVariable = 'App fired!',
         docElem = document.documentElement;
 
     return {

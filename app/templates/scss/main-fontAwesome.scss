@@ -1,0 +1,25 @@
+/**
+ * This is the main css file
+ * Import all dependencies here
+ */
+
+/**
+ * Import: Normalize
+ */
+@import "normalize"; // imported by bower (foundation package)
+
+/**
+ * Import: Foundation framework (5)
+ */
+@import "_foundation-settings"; // import custom settings
+@import "foundation"; // imported by bower
+
+/**
+ * Import: Font Awesome
+ */
+@import "font-awesome"; // imported by bower
+
+/**
+ * Import: custom theme | <%= projectName %>
+ */
+@import "_<%= projectNameSafe %>";

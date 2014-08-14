@@ -41,7 +41,7 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Bourbon
         type: 'confirm',
         name: 'bourbon',
-        message: 'Would you like to include The bourbon SASS library?',
+        message: 'Would you like to include The Bourbon SASS library?',
         default: true
     },{
         // Use polyfill for Foundation 5 (IE*)
@@ -94,7 +94,12 @@ FrontCow.prototype.app = function app() {
         this.copy('js/app.js', 'app/js/app.js');
     this.mkdir('app/css');
     this.mkdir('app/scss');
-        this.copy('scss/main.scss', 'app/scss/main.scss');
+
+        if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
+        else if(this.fontAwesome){ this.copy('scss/main-fontAwesome.scss', 'app/scss/main.scss'); }
+        else if(this.bourbon && this.fontAwesome){ this.copy('scss/main-all.scss', 'app/scss/main.scss'); }
+        else{ this.copy('scss/main-blank.scss', 'app/scss/main.scss'); }
+
         this.copy('scss/_projectName.scss', 'app/scss/_'+this.projectNameSafe+'.scss');
         this.copy('scss/_foundation-settings.scss', 'app/scss/_foundation-settings.scss');
         this.mkdir('app/scss/'+this.projectNameSafe);
