@@ -41,6 +41,7 @@ module.exports = function(grunt) {
                 src: ['.tmp']
             }
         },
+
         copy: {
             fontawesome: {
               files:[
@@ -60,7 +61,12 @@ module.exports = function(grunt) {
                         cwd:'app/',
                         src: ['css/**', 'js/**', '!js/modules/**', '!images/**', 'fonts/**', '**/*.html', '**/*.svg', '**/*.ico', '!**/*.scss', '!bower_components/**'],
                         dest: 'dist/'
-                    }<% if (fontAwesome) { %>,{
+                    },
+                    {
+                        src: 'app/bower_components/jquery/dist/jquery.min.js',
+                        dest: 'dist/js/vendor/jquery.min.js'
+                    }<% if (fontAwesome) { %>,
+                    {
                         expand: true,
                         flatten: true,
                         src: ['app/bower_components/font-awesome/fonts/**'],
@@ -140,6 +146,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         open: {
             app: {
                 path: 'http://127.0.0.1:9000/',
@@ -162,6 +169,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-open');
 
@@ -171,6 +179,6 @@ module.exports = function(grunt) {
     grunt.registerTask('livereload', ['connect:app', 'watch:livereload']);
     grunt.registerTask('validate-js', ['jshint']);
     grunt.registerTask('server-dist', ['connect:dist', 'open:dist']);
-    grunt.registerTask('publish', ['clean', 'copy:dist', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'clean:tmp']);
+    grunt.registerTask('publish', ['clean', 'copy:dist', 'useminPrepare', 'concat', 'uglify', 'usemin', 'imagemin', 'replace', 'clean:tmp']);
 
 };
