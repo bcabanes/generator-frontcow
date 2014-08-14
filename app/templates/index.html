@@ -26,11 +26,13 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
 
+    <% if (polyfill) { %>
     <!--[if lt IE 9]>
         <!-- build:js /js/vendor/respond.min.js -->
         <script src="/bower_components/respond/dest/respond.min.js"></script>
         <!-- endbuild -->
     <![endif]-->
+    <% } %>
   </head>
   <body>
 
