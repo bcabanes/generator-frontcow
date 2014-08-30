@@ -259,7 +259,7 @@ module.exports = function(grunt) {
   });// END grunt.initConfig
 
   /**
-   * SERVE TASK
+   * SERVER TASK
    * Initializing the watch, copying styles and start compass.
    * Lunch the local server and open the app in the browser.
    */
