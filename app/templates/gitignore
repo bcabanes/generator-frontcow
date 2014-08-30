@@ -1,3 +1,7 @@
+# Locals
+.DS_Store
+.thumbs.db
+
 # Temporary files
 .tmp
 

@@ -79,6 +79,7 @@ FrontCow.prototype.app = function app() {
     this.template('_bower.json', 'bower.json');
     this.copy('_package.json', 'package.json');
     this.template('Gruntfile.js', 'Gruntfile.js');
+    this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
     this.copy('jshintrc', '.jshintrc');
     this.copy('_bowerrc', '.bowerrc');

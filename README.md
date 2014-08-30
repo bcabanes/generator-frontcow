@@ -78,7 +78,7 @@ Basically, he wears a top hat, lives in your computer, and waits for you to tell
 
 Not every new computer comes with a Yeoman pre-installed. He lives in the [npm](https://npmjs.org) package repository. You only have to ask for him once, then he packs up and moves into your hard drive. *Make sure you clean up, he likes new and shiny things.*
 
-```
+```bash
 $ npm install -g yo
 ```
 
@@ -92,7 +92,54 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 
 ### FrontCow Grunt Tasks
 
-- `$ grunt` <br> Default Grunt task starts the workflow with SASS watch & build, create a localhost and open you chrome browser to be ready to work.
+The gruntfile provide a complete set of tools to help you to do your work.
+
+#### IP selection
+
+The gruntfile list every interfaces available on your computer to load the server. This permit to you to access to your work by all devices in your local network. This is very usefull to tests on mobiles/tablets for example.
+
+All interfaces are show to you at the begening like this:
+
+```bash
+Interface list:
+----- lo0 127.0.0.1
+----- en0 192.168.0.142
+```
+
+Just pick up one like:
+
+```javascript
+/**
+ * General IP to use
+ */
+var myIP = availableIP.en0; // Could be lo0
+```
+
+#### Development
+
+Grunt task starts the workflow with SASS watch & build, create a server and open your default browser to be ready to work.
+
+```bash
+$ grunt server
+```
+
+### Distribution
+
+To start a loca server with the dist files, run the following command:
+
+```bash
+$ grunt server:dist
+```
+_This command will call the build command in its processes._
+
+
+To just build the `dist` files, run the following command:
+
+```bash
+$ grunt build
+```
+
+
 - `$ grunt validate-js` <br> Validate the JS with jshint.
 - `$ grunt publish` <br> Publish your work: Generated all your distribution files into your dist folder, ready to be published (very magical).
 - `$ grunt server-dist` <br> Create a localhost on the dist folder to see the result of your generated files.
