@@ -65,6 +65,8 @@ FrontCow.prototype.askQuestions = function askQuestions() {
     // ProjectName
     this.projectName = props.projectName;
     this.projectNameSafe = this._.slugify(this.projectName);
+    // Foundation
+    this.foundation = props.foundation;
     // FontAwesome
     this.fontAwesome = props.fontAwesome;
     // Bourbon
@@ -102,13 +104,14 @@ FrontCow.prototype.app = function app() {
     this.mkdir('app/css');
     this.mkdir('app/scss');
 
-        if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
+        if(this.foundation){ this.copy('scss/main-foundation.scss', 'app/scss/main.scss'); }
+        else if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
         else if(this.fontAwesome){ this.copy('scss/main-fontAwesome.scss', 'app/scss/main.scss'); }
         else if(this.bourbon && this.fontAwesome){ this.copy('scss/main-all.scss', 'app/scss/main.scss'); }
         else{ this.copy('scss/main-blank.scss', 'app/scss/main.scss'); }
 
         this.copy('scss/_projectName.scss', 'app/scss/_'+this.projectNameSafe+'.scss');
-        this.copy('scss/_foundation-settings.scss', 'app/scss/_foundation-settings.scss');
+        if(this.foundation){ this.copy('scss/_foundation-settings.scss', 'app/scss/_foundation-settings.scss'); }
         this.mkdir('app/scss/'+this.projectNameSafe);
             this.mkdir('app/scss/'+this.projectNameSafe+'/quarks');
             this.mkdir('app/scss/'+this.projectNameSafe+'/atoms');

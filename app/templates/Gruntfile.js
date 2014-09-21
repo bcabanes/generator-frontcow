@@ -57,15 +57,14 @@ module.exports = function(grunt) {
      */
     watch: {
       grunt: {
-        files: ['Gruntfile.js'],
-        tasks: ['sass']
+        files: ['Gruntfile.js']
       },
       sass: {
         files: ['app/scss/**/*.scss'],
-        tasks: ['sass']
+        tasks: ['sass:dist']
       },
       livereload: {
-      files: ['app/*.html', 'app/js/{,**/}*.js', 'app/css/{,*/}*.css', 'app/images/{,**/}*.{jpg,gif,svg,jpeg,png,ico}'],
+        files: ['app/*.html', 'app/js/{,**/}*.js', 'app/images/{,**/}*.{jpg,gif,svg,jpeg,png,ico}'],
         options: {
           livereload: true
         }
@@ -124,7 +123,7 @@ module.exports = function(grunt) {
         includePaths: [
           <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
           <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
-          <% if (foundation) { %>'app/bower_components/foundation/scss' <% } %>
+          <% if (foundation) { %>'app/bower_components/foundation/scss' <% }else{%>'app/bower_components/normalize.css/'<%} %>
         ],
         outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
         sourceMap: true
@@ -272,7 +271,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      'copy:fontawesome',
+      <% if (fontAwesome) { %>'copy:fontawesome',<% } %>
       'connect:livereload',
       'watch'
     ]);

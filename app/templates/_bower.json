@@ -1,7 +1,8 @@
 {
     "name": "FrontCow",
     "dependencies": {
-      "modernizr": "~3",
+      "normalize.css": "~3",
+      "modernizr": "~2.8",
       "jquery": "~2.1"
       <% if (foundation) { %> , "foundation": "zurb/bower-foundation" <% } %>
       <% if (fontAwesome) { %> , "font-awesome": "~4.1" <% } %>

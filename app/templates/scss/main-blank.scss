@@ -6,13 +6,7 @@
 /**
  * Import: Normalize
  */
-@import "normalize"; // imported by bower (foundation package)
-
-/**
- * Import: Foundation framework (5)
- */
-@import "_foundation-settings"; // import custom settings
-@import "foundation"; // imported by bower
+@import "normalize.css"; // imported by bower
 
 /**
  * Import: custom theme | <%= projectName %>
