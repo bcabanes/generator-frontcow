@@ -1,9 +1,11 @@
 {
     "name": "FrontCow",
     "dependencies": {
-        "foundation": "zurb/bower-foundation"
-        <% if (fontAwesome) { %> , "font-awesome": "~4.1" <% } %>
-        <% if (bourbon) { %> , "bourbon": "~3" <% } %>
-        <% if (polyfill) { %>, "respond": "~1.4.2" <% } %>
+      "modernizr": "~3",
+      "jquery": "~2.1"
+      <% if (foundation) { %> , "foundation": "zurb/bower-foundation" <% } %>
+      <% if (fontAwesome) { %> , "font-awesome": "~4.1" <% } %>
+      <% if (bourbon) { %> , "bourbon": "~3" <% } %>
+      <% if (polyfill) { %>, "respond": "~1.4.2" <% } %>
   }
 }

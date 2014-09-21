@@ -65,7 +65,7 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       livereload: {
-        files: ['app/*.html', 'app/js/{,**/}*.js', 'app/css/{,*/}*.css', 'app/images/{,*/}*.{jpg,gif,svg,jpeg,png}'],
+      files: ['app/*.html', 'app/js/{,**/}*.js', 'app/css/{,*/}*.css', 'app/images/{,**/}*.{jpg,gif,svg,jpeg,png,ico}'],
         options: {
           livereload: true
         }
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         includePaths: [
           <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
           <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
-          'app/bower_components/foundation/scss'
+          <% if (foundation) { %>'app/bower_components/foundation/scss' <% } %>
         ],
         outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
         sourceMap: true
@@ -225,7 +225,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd:'app/',
-            src: ['css/**', 'js/**', '!js/modules/**', '!images/**', 'fonts/**', '**/*.html', '**/*.svg', '**/*.ico', '!**/*.scss', '!bower_components/**'],
+            src: ['css/**', 'js/**', '!js/modules/**', 'images/**', 'fonts/**', '**/*.html', '**/*.svg', '**/*.ico', '!**/*.scss', '!bower_components/**'],
             dest: 'dist/'
           }
           <% if (fontAwesome) { %>,{

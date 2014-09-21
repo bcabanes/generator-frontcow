@@ -32,6 +32,12 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         message: 'What is your project name?',
         default: 'myproject'
     },{
+        // Foundation
+        type: 'confirm',
+        name: 'foundation',
+        message: 'Would you like to include Foundation5? (Fronte-end framework)',
+        default: true
+    },{
         // FontAwesome
         type: 'confirm',
         name: 'fontAwesome',
