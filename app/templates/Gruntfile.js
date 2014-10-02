@@ -76,7 +76,7 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>' // Reference to the Grunt server settings
+          livereload: 35729
         },
         files: [
           'app/{,*/}*.html',

@@ -30,8 +30,8 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         type: 'input',
         name: 'githubUsername',
         message: 'What is your Github username?',
-        default: ''
-    },{
+        default: 'myusername'
+    },
     {
         // Project Name
         type: 'input',
