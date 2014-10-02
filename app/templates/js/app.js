@@ -18,9 +18,10 @@ var App = (function () {
 
 (function($) {
     'use strict';
-
-    //foundation init
-    $(document).foundation();
+    <% if(foundation){%>
+      //foundation init
+      $(document).foundation();
+    <% }%>
 
     // Some examples
     App.publicFunction();
