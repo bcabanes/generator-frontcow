@@ -1,33 +1,19 @@
 {
-  "name": "FrontCow",
-  "version": "0.1.16",
-  "description": "This is frontend generator to get a work environment in minute. StandUp uses Foundation 5 (frontend framework), bourbon (sass library) and fontawesome (icon font), an atomic design SCSS organization.",
-  "keywords": [
-    "frontcow",
-    "yeoman-generator",
-    "zurb",
-    "foundation",
-    "bourbon",
-    "polyfills",
-    "atomic design",
-    "fontawesome",
-    "front",
-    "workflow"
-  ],
-  "homepage": "https://github.com/bcabanes/frontcow",
-  "bugs": "https://github.com/bcabanes/frontcow/issues",
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [ "frontcow", "yeoman" ],
+  "homepage": "https://github.com/<%= githubUsername %>/<%= projectName %>",
+  "bugs": "https://github.com/<%= githubUsername %>/<%= projectName %>/issues",
   "author": {
-    "name": "Ben",
+    "name": "<%= githubUsername %>",
     "email": "",
-    "url": "https://github.com/bcabanes"
+    "url": "https://github.com/<%= githubUsername %>"
   },
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bcabanes/frontcow.git"
-  },
-  "scripts": {
-    "test": "mocha"
+    "url": "git://github.com/<%= githubUsername %>/<%= projectName %>.git"
   },
   "dependencies": {
     "connect-livereload": "~0.3",
@@ -49,13 +35,6 @@
     "time-grunt": "~0.4"
   },
   "devDependencies": {
-  },
-  "peerDependencies": {
-    "yo": ">=1.0"
-  },
-  "engines": {
-    "node": ">=0.9",
-    "npm": ">=1.2"
   },
   "licenses": [
     {

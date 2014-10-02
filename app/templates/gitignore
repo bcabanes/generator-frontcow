@@ -10,3 +10,6 @@ app/bower_components
 
 # Modules folder
 node_modules
+
+# App
+app/css

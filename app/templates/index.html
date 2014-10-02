@@ -17,9 +17,9 @@
     <!-- <link rel="apple-touch-icon-precomposed" href="/img/favicons/apple-touch-icon-precomposed.png"> -->
     <!-- <link rel="icon" href="/img/favicons/favicon.ico" type="image/x-icon"> -->
 
-    <!-- build:css css/main.css -->
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/main_override.css" rel="stylesheet">
+    <!-- build:css /css/main.css -->
+    <% if(!foundation){ %><link href="/bower_components/normalize.css/normalize.css" rel="stylesheet"><% } %>
+    <link href="1css/main.css" rel="stylesheet">
     <!-- endbuild -->
 
     <!-- build:js /js/vendor/modernizr.js -->
@@ -51,11 +51,11 @@
         </ul>
         <h1>Grunt tasks:</h1>
         <ul>
-          <li>'grunt' - watching (Sass, Server on 127.0.0.1:9000 with LiveReload)</li>
+          <li>'grunt' - watching (Sass, Server with LiveReload)</li>
           <li>'grunt build' - Sass</li>
           <li>'grunt validate-js' - JSHint</li>
           <li>'grunt publish' - dist directory</li>
-          <li>'grunt server-dist' - server on 127.0.0.1:9001 - dist directory (preview only)</li>
+          <li>'grunt server-dist' - dist directory (preview only)</li>
         </ul>
         <hr>
         <h2 class="text-right">
@@ -70,14 +70,15 @@
       </div>
     </div>
 
-
     <!-- build:js /js/vendor/jquery.min.js -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- endbuild -->
 
+    <% if (foundation) { %>
     <!-- build:js /js/vendor/foundation.min.js -->
     <script src="/bower_components/foundation/js/foundation.min.js"></script>
     <!-- endbuild -->
+    <% }%>
 
     <!-- Load Modules -->
     <!-- build:js /js/app.js -->

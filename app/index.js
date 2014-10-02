@@ -26,11 +26,24 @@ FrontCow.prototype.askQuestions = function askQuestions() {
 
   var prompts = [
     {
+        // Github username
+        type: 'input',
+        name: 'githubUsername',
+        message: 'What is your Github username?',
+        default: ''
+    },{
+    {
         // Project Name
         type: 'input',
         name: 'projectName',
         message: 'What is your project name?',
         default: 'myproject'
+    },{
+        // Foundation
+        type: 'confirm',
+        name: 'foundation',
+        message: 'Would you like to include Foundation5? (Fronte-end framework)',
+        default: true
     },{
         // FontAwesome
         type: 'confirm',
@@ -56,9 +69,13 @@ FrontCow.prototype.askQuestions = function askQuestions() {
     // `props` is an object passed in containing the response values, named in
     // accordance with the `name` property from your prompt object. So, for us:
 
+    // Github username
+    this.githubUsername = props.githubUsername;
     // ProjectName
     this.projectName = props.projectName;
     this.projectNameSafe = this._.slugify(this.projectName);
+    // Foundation
+    this.foundation = props.foundation;
     // FontAwesome
     this.fontAwesome = props.fontAwesome;
     // Bourbon
@@ -96,13 +113,14 @@ FrontCow.prototype.app = function app() {
     this.mkdir('app/css');
     this.mkdir('app/scss');
 
-        if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
+        if(this.foundation){ this.copy('scss/main-foundation.scss', 'app/scss/main.scss'); }
+        else if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
         else if(this.fontAwesome){ this.copy('scss/main-fontAwesome.scss', 'app/scss/main.scss'); }
         else if(this.bourbon && this.fontAwesome){ this.copy('scss/main-all.scss', 'app/scss/main.scss'); }
         else{ this.copy('scss/main-blank.scss', 'app/scss/main.scss'); }
 
         this.copy('scss/_projectName.scss', 'app/scss/_'+this.projectNameSafe+'.scss');
-        this.copy('scss/_foundation-settings.scss', 'app/scss/_foundation-settings.scss');
+        if(this.foundation){ this.copy('scss/_foundation-settings.scss', 'app/scss/_foundation-settings.scss'); }
         this.mkdir('app/scss/'+this.projectNameSafe);
             this.mkdir('app/scss/'+this.projectNameSafe+'/quarks');
             this.mkdir('app/scss/'+this.projectNameSafe+'/atoms');
@@ -113,5 +131,5 @@ FrontCow.prototype.app = function app() {
             this.mkdir('app/scss/'+this.projectNameSafe+'/utilities');
                 this.mkdir('app/scss/'+this.projectNameSafe+'/utilities/animations');
             this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss');
-        this.copy('css/template_override.css', 'app/css/main_override.css');
+        this.mkdir('app/css/');
 };
