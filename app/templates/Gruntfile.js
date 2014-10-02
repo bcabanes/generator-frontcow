@@ -1,3 +1,4 @@
+/* global require */
 'use strict';
 
 /**
@@ -49,52 +50,68 @@ module.exports = function(grunt) {
    * Define the configuration for all tasks
    */
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
 
     /**
      * Watch files for changes and runs tasks based on the changed files
      * @type {Object}
      */
     watch: {
-      grunt: {
+      options: {
+          nospawn: true, // Will be 'spawn: false' in v6.x
+          livereload: true
+      },
+      js: {
+      files: ['app/js/{,*/}*.{js,hbs}'],
+        tasks: [],
+        option: {
+          livereload: true
+        }
+      },
+      gruntfile: {
         files: ['Gruntfile.js']
       },
       sass: {
-        files: ['app/scss/**/*.scss'],
+        files: 'app/scss/**/*.scss',
         tasks: ['sass:dist']
       },
       livereload: {
-        files: ['app/*.html', 'app/js/{,**/}*.js', 'app/images/{,**/}*.{jpg,gif,svg,jpeg,png,ico}'],
         options: {
-          livereload: true
-        }
+          livereload: '<%= connect.options.livereload %>' // Reference to the Grunt server settings
+        },
+        files: [
+          'app/{,*/}*.html',
+          'app/js/templates/{,*/}*.hbs',
+          'app/js/{,*/}*.js',
+          'app/js/modules/{,*/}*.js',
+          'app/images/{,*/}*.{ico,gif,jpeg,jpg,png,svg,webp}'
+        ]
       }
     },
 
-  /**
-   * Grunt server settings
-   */
-  connect: {
-    options: {
-      hostname: myIP,
-      livereload: 35729,
-      port: 9000,
-      protocol: 'http' // Protocol used
-    },
-    livereload: {
+    /**
+     * Grunt server settings
+     */
+    connect: {
       options: {
-        open: true,
-        base: 'app'
+        hostname: myIP,
+        livereload: 35729,
+        port: 9000,
+        protocol: 'http' // Protocol used
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: 'app'
+        }
+      },
+      dist: {
+        options: {
+          open: true,
+          base: 'dist',
+          livereload: false
+        }
       }
     },
-    dist: {
-      options: {
-        open: true,
-        base: 'dist',
-        livereload: false
-      }
-    }
-  },
 
     /**
      * Empties folders to start fresh
@@ -136,23 +153,26 @@ module.exports = function(grunt) {
     },
 
     /**
-     * ImageMin
-     * Image compression
-     * @type {Object}
+     * The following *-min tasks produce minified files in the dist folder
      */
     imagemin: {
-      dynamic: {
-        options: {
-          optimizationLevel: 3
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'app/medias/',
-            src: ['**/*.{png,jpg,gif,ico}'],
-            dest: 'dist/medias/'
-          }
-        ]
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/medias/images',
+          src: '{,*/}*.{gif,jpeg,jpg,png}',
+          dest: 'dist/medias/images'
+        }]
+      }
+    },
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/medias/images',
+          src: '{,*/}*.svg',
+          dest: 'dist/medias/images'
+        }]
       }
     },
 
@@ -168,10 +188,10 @@ module.exports = function(grunt) {
       }
     },
     usemin: {
-      html: ['dist/**/*.html'],
-      css: ['dist/css/**/*.css'],
+      html: ['dist/{,*/}*.html'],
+      css: ['dist/css/{,*/}*.css'],
       options: {
-        dirs: 'dist'
+        dirs: ['dist']
       }
     },
 
@@ -223,9 +243,20 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd:'app/',
-            src: ['css/**', 'js/**', '!js/modules/**', 'images/**', 'fonts/**', '**/*.html', '**/*.svg', '**/*.ico', '!**/*.scss', '!bower_components/**'],
-            dest: 'dist/'
+            dot: true,
+            cwd: '<%= yeoman.app %>',    // From
+            dest: '<%= yeoman.dist %>',  // To
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              'images/{,*/}*.{jpg,gif,ico,png,txt,webp,svg}',
+              '{,*/}*.html',
+              '*.html',
+              'js/{,*/}*.*', // Need to load entities
+              '!js/modules', // No need to copy modules
+              'css/{,*/}*.*',
+              'fonts/{,*/}*.*'
+            ]
           }
           <% if (fontAwesome) { %>,{
             expand: true,
