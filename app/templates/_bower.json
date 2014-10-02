@@ -1,12 +1,12 @@
 {
-    "name": "FrontCow",
+    "name": "<%= projectName%>",
     "dependencies": {
-      "normalize.css": "~3",
+      <% if (bourbon) { %> "bourbon": "~3", <% } %>
+      <% if (fontAwesome) { %> "font-awesome": "~4.1", <% } %>
+      <% if (foundation) { %> "foundation": "zurb/bower-foundation", <% } %>
+      "jquery": "~2.1",
       "modernizr": "~2.8",
-      "jquery": "~2.1"
-      <% if (foundation) { %> , "foundation": "zurb/bower-foundation" <% } %>
-      <% if (fontAwesome) { %> , "font-awesome": "~4.1" <% } %>
-      <% if (bourbon) { %> , "bourbon": "~3" <% } %>
+      "normalize.css": "~3"
       <% if (polyfill) { %>, "respond": "~1.4" <% } %>
   }
 }
