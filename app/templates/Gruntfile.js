@@ -12,7 +12,10 @@ for (var dev in ifaces) {
   var alias=0;
   ifaces[dev].forEach(function(details){
     if (details.family === 'IPv4') {
-      availableIP[dev] = details.address;
+      availableIP.push({
+        'interface': dev,
+        'ip': details.address
+      });
 console.info('----- '+dev+(alias?':'+alias:''), details.address);
       ++alias;
     }
@@ -22,7 +25,7 @@ console.info('----- '+dev+(alias?':'+alias:''), details.address);
 /**
  * General IP to use
  */
-var myIP = availableIP[0];
+var myIP = availableIP[0].ip;
 
 /**
  * GRUNTFILE
