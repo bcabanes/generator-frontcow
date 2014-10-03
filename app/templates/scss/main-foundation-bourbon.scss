@@ -9,9 +9,15 @@
 @import "normalize"; // imported by bower (foundation package)
 
 /**
- * Import: Font Awesome
+ * Import: Bourbon mixin library
  */
-@import "font-awesome"; // imported by bower
+@import "_bourbon"; // imported by bower
+
+/**
+ * Import: Foundation framework (5)
+ */
+@import "_foundation-settings"; // import custom settings
+@import "foundation"; // imported by bower
 
 /**
  * Import: custom theme | <%= projectName %>

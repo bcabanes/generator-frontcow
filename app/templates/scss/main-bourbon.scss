@@ -14,12 +14,6 @@
 @import "_bourbon"; // imported by bower
 
 /**
- * Import: Foundation framework (5)
- */
-@import "_foundation-settings"; // import custom settings
-@import "foundation"; // imported by bower
-
-/**
  * Import: custom theme | <%= projectName %>
  */
 @import "_<%= projectNameSafe %>";
