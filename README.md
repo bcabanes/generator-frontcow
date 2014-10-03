@@ -112,12 +112,32 @@ Just pick up one like:
 /**
  * General IP to use
  */
-var myIP = availableIP.en0; // Could be lo0
+var myIP = availableIP.[0]; // Could be 0...1...2...
 ```
 
 #### Development
 
 Grunt task starts the workflow with SASS watch & build, create a server and open your default browser to be ready to work.
+
+##### Using font-awesome
+
+If you said yes to use font-awesome you have to copy the font first (one time) with the following command:
+
+```bash
+$ grunt copy:fontawesome
+```
+
+##### Before start the server
+
+Before start the server, you can directly create the base css with the following command:
+
+```bash
+$ grunt sass:dist
+```
+
+##### Start the server
+
+To start the server, just run the following command:
 
 ```bash
 $ grunt server
@@ -139,10 +159,13 @@ To just build the `dist` files, run the following command:
 $ grunt build
 ```
 
+### Javascript validation
 
-- `$ grunt validate-js` <br> Validate the JS with jshint.
-- `$ grunt publish` <br> Publish your work: Generated all your distribution files into your dist folder, ready to be published (very magical).
-- `$ grunt server-dist` <br> Create a localhost on the dist folder to see the result of your generated files.
+To run the jsHint, just run the following command:
+
+```bash
+$ grunt validate-js
+```
 
 
 ### Getting To Know Yeoman
