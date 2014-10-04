@@ -112,8 +112,11 @@ Just pick up one like:
 /**
  * General IP to use
  */
-var myIP = availableIP.[0]; // Could be 0...1...2...
+var myIP = availableIP.[1]; // Could be 0,1,2...
 ```
+
+- ```[0]``` refers to your localhost (127.0.0.1)
+- ```[1]``` refers generally to your ip on your local network
 
 #### Development
 
