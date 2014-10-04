@@ -25,7 +25,7 @@ console.info('----- '+dev+(alias?':'+alias:''), details.address);
 /**
  * General IP to use
  */
-var myIP = availableIP[0].ip;
+var myIP = availableIP[1].ip;
 
 /**
  * GRUNTFILE
@@ -247,14 +247,13 @@ module.exports = function(grunt) {
           {
             expand: true,
             dot: true,
-            cwd: '<%= yeoman.app %>',    // From
-            dest: '<%= yeoman.dist %>',  // To
+            cwd: 'app',    // From
+            dest: 'dist',  // To
             src: [
               '*.{ico,png,txt}',
               '.htaccess',
               'images/{,*/}*.{jpg,gif,ico,png,txt,webp,svg}',
               '{,*/}*.html',
-              '*.html',
               'js/{,*/}*.*', // Need to load entities
               '!js/modules', // No need to copy modules
               'css/{,*/}*.*',
