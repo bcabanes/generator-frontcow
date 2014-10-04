@@ -283,7 +283,7 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       all: [
-        'Gruntfile.js',
+        '!Gruntfile.js',
         'app/js/{,*/}*.js'
       ]
     }
