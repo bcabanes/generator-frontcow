@@ -252,7 +252,8 @@ module.exports = function(grunt) {
             src: [
               '*.{ico,png,txt}',
               '.htaccess',
-              'images/{,*/}*.{jpg,gif,ico,png,txt,webp,svg}',
+              //'medias/images/{,*/}*.{jpg,gif,ico,png,txt,webp,svg}',
+              'medias/{,*/}*.*',
               '{,*/}*.html',
               'js/{,*/}*.*', // Need to load entities
               '!js/modules', // No need to copy modules
