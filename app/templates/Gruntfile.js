@@ -143,7 +143,7 @@ module.exports = function(grunt) {
         includePaths: [
           <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
           <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
-          <% if (foundation) { %>'app/bower_components/foundation/scss' <% } %>
+          <% if (foundation) { %>'app/bower_components/foundation/scss' <% } else { %> 'app/bower_components/modularized-normalize-scss' <% }%>
         ],
         outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
         sourceMap: true

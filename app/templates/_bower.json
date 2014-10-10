@@ -6,7 +6,7 @@
       <% if (foundation) { %> "foundation": "zurb/bower-foundation", <% } %>
       "jquery": "~2.1",
       "modernizr": "~2.8",
-      "normalize.css": "~3"
+      "modularized-normalize-scss": "~3"
       <% if (polyfill) { %>, "respond": "~1.4" <% } %>
   }
 }
