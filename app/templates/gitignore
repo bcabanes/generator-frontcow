@@ -13,3 +13,6 @@ node_modules
 
 # App
 app/css
+
+# Dist
+dist/
