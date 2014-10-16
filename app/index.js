@@ -132,6 +132,8 @@ FrontCow.prototype.app = function app() {
             this.mkdir('app/scss/'+this.projectNameSafe+'/templates');
             this.mkdir('app/scss/'+this.projectNameSafe+'/utilities');
                 this.mkdir('app/scss/'+this.projectNameSafe+'/utilities/animations');
-            this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss');
+            if(this.foundation){ this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss'); }
+            else{ this.copy('scss/_imports-base.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss'); }
+
         this.mkdir('app/css/');
 };
