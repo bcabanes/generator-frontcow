@@ -133,7 +133,14 @@ FrontCow.prototype.app = function app() {
             this.mkdir('app/scss/'+this.projectNameSafe+'/utilities');
                 this.mkdir('app/scss/'+this.projectNameSafe+'/utilities/animations');
             if(this.foundation){ this.copy('scss/_imports.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss'); }
-            else{ this.copy('scss/_imports-base.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss'); }
+            else{
+              this.copy('scss/_imports-base.scss', 'app/scss/'+this.projectNameSafe+'/_imports.scss');
+              this.copy('scss/bases/_fonts.scss', 'app/scss/'+this.projectNameSafe+'/utilities/_fonts.scss');
+              this.copy('scss/bases/_functions.scss', 'app/scss/'+this.projectNameSafe+'/utilities/_functions.scss');
+              this.copy('scss/bases/_grids.scss', 'app/scss/'+this.projectNameSafe+'/utilities/_grids.scss');
+              this.copy('scss/bases/_mixins.scss', 'app/scss/'+this.projectNameSafe+'/utilities/_mixins.scss');
+              this.copy('scss/bases/_variables.scss', 'app/scss/'+this.projectNameSafe+'/utilities/_variables.scss');
+            }
 
         this.mkdir('app/css/');
 };
