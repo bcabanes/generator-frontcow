@@ -11,11 +11,7 @@ module.exports = function(grunt) {
   * Read the dependencies/devDependencies/peerDependencies in the package.json
   * and load grunt tasks that match the provided patterns.
   */
-  require('load-grunt-tasks')(grunt, {
-    // pattern: 'grunt-*',
-    config: 'package.json',
-    scope: ['dependencies', 'devDependencies']
-  });
+  require('load-grunt-tasks')();
 
   /**
    * Time how long tasks take.
@@ -273,7 +269,7 @@ module.exports = function(grunt) {
     grunt.task.run([
       'clean:server',
       <% if (fontAwesome) { %>'copy:fontawesome',<% } %>
-      'browserSync:server',
+      'browserSync:dev',
       'watch'
     ]);
   });
