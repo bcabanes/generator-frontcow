@@ -4,11 +4,6 @@
  */
 
 /**
- * Import: Normalize
- */
-@import "_normalize"; // imported by bower
-
-/**
  * Import: custom theme | <%= projectName %>
  */
 @import "_<%= projectNameSafe %>";
