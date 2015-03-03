@@ -13,9 +13,6 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    "test": "mocha"
-  },
   "files": [
     "app"
   ],
@@ -36,9 +33,6 @@
   "dependencies": {
     "yeoman-generator": "~0.17",
     "chalk": "~0.4.0"
-  },
-  "devDependencies": {
-    "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
