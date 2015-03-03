@@ -2,32 +2,6 @@
 'use strict';
 
 /**
- * Get and display all interfaces and their IP
- */
-console.info('Interface list:');
-var os = require('os');
-var ifaces = os.networkInterfaces();
-var availableIP = [];
-for (var dev in ifaces) {
-  var alias=0;
-  ifaces[dev].forEach(function(details){
-    if (details.family === 'IPv4') {
-      availableIP.push({
-        'interface': dev,
-        'ip': details.address
-      });
-console.info('----- '+dev+(alias?':'+alias:''), details.address);
-      ++alias;
-    }
-  });
-}
-
-/**
- * General IP to use
- */
-var myIP = availableIP[1].ip;
-
-/**
  * GRUNTFILE
  */
 module.exports = function(grunt) {
@@ -60,58 +34,51 @@ module.exports = function(grunt) {
      */
     watch: {
       options: {
-          nospawn: true, // Will be 'spawn: false' in v6.x
-          livereload: true
-      },
-      js: {
-      files: ['app/js/{,*/}*.{js,hbs}'],
-        tasks: [],
-        option: {
-          livereload: true
-        }
-      },
-      gruntfile: {
-        files: ['Gruntfile.js']
+        debounceDelay: 200
       },
       sass: {
         files: 'app/scss/**/*.scss',
         tasks: ['sass:dist']
-      },
-      livereload: {
-        options: {
-          livereload: 35729
-        },
-        files: [
-          'app/{,*/}*.html',
-          'app/js/templates/{,*/}*.hbs',
-          'app/js/{,*/}*.js',
-          'app/js/modules/{,*/}*.js',
-          'app/images/{,*/}*.{ico,gif,jpeg,jpg,png,svg,webp}'
-        ]
       }
     },
 
     /**
      * Grunt server settings
      */
-    connect: {
-      options: {
-        hostname: myIP,
-        livereload: 35729,
-        port: 9000,
-        protocol: 'http' // Protocol used
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: 'app'
+    browserSync: {
+      dev: {
+        'options': {
+          'port': 4000,
+          'watchTask': true,
+          'injectChanges': false,
+          'server': {
+            'baseDir': './app',
+            'middleware': [
+              require('connect-history-api-fallback')
+            ]
+          },
+          'files': [
+            'app/js/**/*',
+            'app/images/**/*',
+            'app/*.html',
+            'app/css/**/*'
+          ]
         }
       },
       dist: {
-        options: {
-          open: true,
-          base: 'dist',
-          livereload: false
+        'options': {
+          'port': 5000,
+          'watchTask': true,
+          'injectChanges': false,
+          'server': {
+            'baseDir': './dist',
+            'middleware': [
+              require('connect-history-api-fallback')
+            ]
+          },
+          'files': [
+            'app/*.html',
+          ]
         }
       }
     },
@@ -300,13 +267,13 @@ module.exports = function(grunt) {
 
     // $ grunt server:dist
     if(target === 'dist') {
-      return grunt.task.run(['build', 'connect:dist:keepalive']);
+      return grunt.task.run(['build', 'browserSync:dist']);
     }
 
     grunt.task.run([
       'clean:server',
       <% if (fontAwesome) { %>'copy:fontawesome',<% } %>
-      'connect:livereload',
+      'browserSync:server',
       'watch'
     ]);
   });
