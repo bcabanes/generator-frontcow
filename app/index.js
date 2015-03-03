@@ -51,12 +51,6 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         message: 'Would you like to include Font Awesome? (Font Awesome gives you scalable vector icons)',
         default: true
     },{
-        // Bourbon
-        type: 'confirm',
-        name: 'bourbon',
-        message: 'Would you like to include The Bourbon SASS library?',
-        default: true
-    },{
         // Use polyfill for Foundation 5 (IE*)
         type: 'confirm',
         name: 'polyfill',

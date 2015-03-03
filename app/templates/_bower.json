@@ -1,7 +1,6 @@
 {
     "name": "<%= projectName%>",
     "dependencies": {
-      <% if (bourbon) { %> "bourbon": "3.*", <% } %>
       <% if (fontAwesome) { %> "font-awesome": "4.*", <% } %>
       <% if (foundation) { %> "foundation": "zurb/bower-foundation", <% } %>
       "jquery": "2.*",
