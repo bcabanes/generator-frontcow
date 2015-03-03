@@ -10,8 +10,12 @@ Cute logo, big time saving... When it comes to make a website you have to set yo
 #### Foundation 5
 FrontCow use the amazing [Foundation5 front-end framework](http://foundation.zurb.com/) powered by Zurb, which is "The most advanced responsive front-end framework in the world".
 
-#### Bourbon + FontAwesome
-FrontCow gives you the possibility to add the [Bourbon SASS library](http://bourbon.io/) to your project to get a lot a nice SASS mixins, and [FontAwesome](http://fortawesome.github.io/Font-Awesome/), the popular iconic webfont.
+#### FontAwesome
+FrontCow gives you the possibility to add  [FontAwesome](http://fortawesome.github.io/Font-Awesome/), the popular iconic webfont.
+
+#### BrowserSync
+
+FrontCow use [BrowserSync](http://www.browsersync.io/) to build a simple static server highly customisable.
 
 #### Atomic Design
 FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) architecture in mind, so it will create and organize your SCSS in a particulare file system:
@@ -51,7 +55,6 @@ FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post
 
 - Project/Site naming
 - CSS Preprocessing with [SCSS](http://sass-lang.com/)
-- [Bourbon](http://bourbon.io/) SASS Mixin library
 - [Font Awesome](http://fortawesome.github.io/Font-Awesome/) popular iconic webfont
 - IE8+ Support via [RespondJS](https://github.com/scottjehl/Respond)
 
@@ -93,30 +96,6 @@ Yeoman travels light. He didn't pack any generators when he moved in. You can th
 ### FrontCow Grunt Tasks
 
 The gruntfile provide a complete set of tools to help you to do your work.
-
-#### IP selection
-
-The gruntfile list every interfaces available on your computer to load the server. This permit to you to access to your work by all devices in your local network. This is very usefull to tests on mobiles/tablets for example.
-
-All interfaces are show to you at the begening like this:
-
-```bash
-Interface list:
------ lo0 127.0.0.1
------ en0 192.168.0.142
-```
-
-Just pick up one like:
-
-```javascript
-/**
- * General IP to use
- */
-var myIP = availableIP.[1]; // Could be 0,1,2...
-```
-
-- ```[0]``` refers to your localhost (127.0.0.1)
-- ```[1]``` refers generally to your ip on your local network
 
 #### Development
 
