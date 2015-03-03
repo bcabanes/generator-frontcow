@@ -11,7 +11,7 @@ module.exports = function(grunt) {
   * Read the dependencies/devDependencies/peerDependencies in the package.json
   * and load grunt tasks that match the provided patterns.
   */
-  require('load-grunt-tasks')();
+  require('load-grunt-tasks')(grunt);
 
   /**
    * Time how long tasks take.
