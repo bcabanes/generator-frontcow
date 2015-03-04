@@ -101,15 +101,15 @@ module.exports = function(grunt) {
      */
      'clean': {
        'dist': {
-        'files': [{
-          'dot': true,
-          'src': [
-            '.tmp',
-            'dist/*',
-            '!dist/.git*'
-          ]
-        }]
-      },
+         'files': [{
+           'dot': true,
+           'src': [
+             '.tmp',
+             'dist/*',
+             '!dist/.git*'
+           ]
+         }]
+       },
       'server': '.tmp'
     },
 
@@ -128,9 +128,8 @@ module.exports = function(grunt) {
         'sourceMap': true
       },
       'dist': {
-        'files': {
-          'app/css/main.css': 'app/scss/main.scss'
-        }
+        'src': 'app/scss/main.scss',
+        'dest': 'app/css/main.css'
       }
     },
 
@@ -170,35 +169,8 @@ module.exports = function(grunt) {
       }
     },
     'usemin': {
-      'html': ['dist/{,*/}*.html'],
-      'css': ['dist/css/{,*/}*.css'],
-      'options': {
-        'dirs': ['dist']
-      }
-    },
-
-    /**
-     * Concat (use by usemin/useminPrepare)
-     * @type {Object}
-     */
-    'concat': {
-      'options': {
-        'separator': ';',
-        'sourceMap': false,
-        'sourceMapName': undefined,
-        'sourceMapStyle': 'embed'
-      }
-    },
-
-    /**
-     * UglifyJS (use by usemin/useminPrepare)
-     * @type {Object}
-     */
-    'uglify': {
-      'options': {
-        'beautify': false,
-        'mangle': true
-      }
+      'html': 'dist/*.html',
+      'css': 'dist/css/**/*'
     },
 
     /**
@@ -293,6 +265,9 @@ module.exports = function(grunt) {
     'clean:dist',
     'copy:dist',
     'useminPrepare',
+    'concat:generated',
+    'cssmin:generated',
+    'uglify:generated',
     'usemin',
     'concat',
     'uglify',
