@@ -45,12 +45,6 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         message: 'Would you like to include Foundation5? (Fronte-end framework)',
         default: true
     },{
-        // FontAwesome
-        type: 'confirm',
-        name: 'fontAwesome',
-        message: 'Would you like to include Font Awesome? (Font Awesome gives you scalable vector icons)',
-        default: true
-    },{
         // Use polyfill for Foundation 5 (IE*)
         type: 'confirm',
         name: 'polyfill',
@@ -107,12 +101,7 @@ FrontCow.prototype.app = function app() {
     this.mkdir('app/css');
     this.mkdir('app/scss');
 
-        if(this.foundation && this.bourbon && this.fontAwesome){ this.copy('scss/main-all.scss', 'app/scss/main.scss'); }
-        else if(this.foundation && this.fontAwesome){ this.copy('scss/main-foundation-fontAwesome.scss', 'app/scss/main.scss'); }
-        else if(this.bourbon && this.fontAwesome){ this.copy('scss/main-bourbon-fontAwesome.scss', 'app/scss/main.scss'); }
-        else if(this.foundation){ this.copy('scss/main-foundation.scss', 'app/scss/main.scss'); }
-        else if(this.bourbon){ this.copy('scss/main-bourbon.scss', 'app/scss/main.scss'); }
-        else if(this.fontAwesome){ this.copy('scss/main-fontAwesome.scss', 'app/scss/main.scss'); }
+        if(this.foundation){ this.copy('scss/main-foundation.scss', 'app/scss/main.scss'); }
         else{ this.copy('scss/main-blank.scss', 'app/scss/main.scss'); }
 
         this.copy('scss/_projectName.scss', 'app/scss/_'+this.projectNameSafe+'.scss');

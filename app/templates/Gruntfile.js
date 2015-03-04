@@ -121,9 +121,8 @@ module.exports = function(grunt) {
     'sass': {
       'options': {
         'includePaths': [
-          <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
-          <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
-          <% if (foundation) { %>'app/bower_components/foundation/scss' <% } else { %> 'app/bower_components/modularized-normalize-scss' <% }%>
+          'app/bower_components/font-awesome/scss'
+          <% if (foundation) { %>,'app/bower_components/foundation/scss' <% } else { %> 'app/bower_components/modularized-normalize-scss' <% }%>
         ],
         'outputStyle': 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
         'sourceMap': true
@@ -209,7 +208,6 @@ module.exports = function(grunt) {
      * @type {Object}
      */
     'copy': {
-      <% if (fontAwesome) { %>
       'fontawesome': {
         'files':[
           {
@@ -221,7 +219,6 @@ module.exports = function(grunt) {
           }
         ]
       },
-      <% } %>
       'dist': {
         'files': [
           {
@@ -240,15 +237,13 @@ module.exports = function(grunt) {
               'css/{,*/}*.*',
               'fonts/{,*/}*.*'
             ]
-          }
-          <% if (fontAwesome) { %>,{
+          },{
             'expand': true,
             'flatten': true,
             'src': ['app/bower_components/font-awesome/fonts/**'],
             'dest': 'dist/fonts/',
             'filter': 'isFile'
           }
-          <% } %>
         ]
       }
     },
@@ -285,7 +280,7 @@ module.exports = function(grunt) {
 
     grunt.task.run([
       'clean:server',
-      <% if (fontAwesome) { %>'copy:fontawesome',<% } %>
+      'copy:fontawesome',
       'browserSync:dev',
       'watch'
     ]);

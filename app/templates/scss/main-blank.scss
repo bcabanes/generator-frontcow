@@ -4,6 +4,11 @@
  */
 
 /**
+ * Import: Font Awesome
+ */
+@import "font-awesome"; // imported by bower
+
+/**
  * Import: custom theme | <%= projectName %>
  */
 @import "_<%= projectNameSafe %>";
