@@ -45,21 +45,21 @@ module.exports = function(grunt) {
      * Watch files for changes and runs tasks based on the changed files
      * @type {Object}
      */
-    watch: {
-      options: {
-        debounceDelay: 200
+    'watch': {
+      'options': {
+        'debounceDelay': 200
       },
-      sass: {
-        files: 'app/scss/**/*.scss',
-        tasks: ['sass:dist']
+      'sass': {
+        'files': 'app/scss/**/*.scss',
+        'tasks': ['sass:dist']
       }
     },
 
     /**
      * Grunt server settings
      */
-    browserSync: {
-      dev: {
+    'browserSync': {
+      'dev': {
         'options': {
           'port': 4000,
           'watchTask': true,
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
           ]
         }
       },
-      dist: {
+      'dist': {
         'options': {
           'port': 5000,
           'watchTask': true,
@@ -99,18 +99,18 @@ module.exports = function(grunt) {
     /**
      * Empties folders to start fresh
      */
-     clean: {
-       dist: {
-        files: [{
-          dot: true,
-          src: [
+     'clean': {
+       'dist': {
+        'files': [{
+          'dot': true,
+          'src': [
             '.tmp',
             'dist/*',
             '!dist/.git*'
           ]
         }]
       },
-      server: '.tmp'
+      'server': '.tmp'
     },
 
     /**
@@ -118,18 +118,18 @@ module.exports = function(grunt) {
      * Compiles Sass to CSS and generates necessary files if requested
      * @type {Object}
      */
-    sass: {
-      options: {
-        includePaths: [
+    'sass': {
+      'options': {
+        'includePaths': [
           <% if (bourbon) { %>'app/bower_components/bourbon/dist',<% } %>
           <% if (fontAwesome) { %>'app/bower_components/font-awesome/scss',<% } %>
           <% if (foundation) { %>'app/bower_components/foundation/scss' <% } else { %> 'app/bower_components/modularized-normalize-scss' <% }%>
         ],
-        outputStyle: 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
-        sourceMap: true
+        'outputStyle': 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
+        'sourceMap': true
       },
-      dist: {
-        files: {
+      'dist': {
+        'files': {
           'app/css/main.css': 'app/scss/main.scss'
         }
       }
@@ -138,23 +138,23 @@ module.exports = function(grunt) {
     /**
      * The following *-min tasks produce minified files in the dist folder
      */
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'app/medias/images',
-          src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: 'dist/medias/images'
+    'imagemin': {
+      'dist': {
+        'files': [{
+          'expand': true,
+          'cwd': 'app/medias/images',
+          'src': '{,*/}*.{gif,jpeg,jpg,png}',
+          'dest': 'dist/medias/images'
         }]
       }
     },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: 'app/medias/images',
-          src: '{,*/}*.svg',
-          dest: 'dist/medias/images'
+    'svgmin': {
+      'dist': {
+        'files': [{
+          'expand': true,
+          'cwd': 'app/medias/images',
+          'src': '{,*/}*.svg',
+          'dest': 'dist/medias/images'
         }]
       }
     },
@@ -163,18 +163,18 @@ module.exports = function(grunt) {
      * USEMIN PREPARE
      * @type {Object}
      */
-    useminPrepare: {
-      html: 'app/index.html',
-      options: {
-        staging: '.tmp',
-        dest: 'dist'
+    'useminPrepare': {
+      'html': 'app/index.html',
+      'options': {
+        'staging': '.tmp',
+        'dest': 'dist'
       }
     },
-    usemin: {
-      html: ['dist/{,*/}*.html'],
-      css: ['dist/css/{,*/}*.css'],
-      options: {
-        dirs: ['dist']
+    'usemin': {
+      'html': ['dist/{,*/}*.html'],
+      'css': ['dist/css/{,*/}*.css'],
+      'options': {
+        'dirs': ['dist']
       }
     },
 
@@ -182,12 +182,12 @@ module.exports = function(grunt) {
      * Concat (use by usemin/useminPrepare)
      * @type {Object}
      */
-    concat: {
-      options: {
-        separator: ';',
-        sourceMap: false,
-        sourceMapName: undefined,
-        sourceMapStyle: 'embed'
+    'concat': {
+      'options': {
+        'separator': ';',
+        'sourceMap': false,
+        'sourceMapName': undefined,
+        'sourceMapStyle': 'embed'
       }
     },
 
@@ -195,10 +195,10 @@ module.exports = function(grunt) {
      * UglifyJS (use by usemin/useminPrepare)
      * @type {Object}
      */
-    uglify: {
-      options: {
-        beautify: false,
-        mangle: true
+    'uglify': {
+      'options': {
+        'beautify': false,
+        'mangle': true
       }
     },
 
@@ -208,28 +208,28 @@ module.exports = function(grunt) {
      * dist: simple frontend distribution
      * @type {Object}
      */
-    copy: {
+    'copy': {
       <% if (fontAwesome) { %>
-      fontawesome: {
-        files:[
+      'fontawesome': {
+        'files':[
           {
-            cwd:'app/bower_components/font-awesome/fonts/',
-            expand: true,
-            flatten: true,
-            src: '**',
-            dest: 'app/fonts/'
+            'cwd':'app/bower_components/font-awesome/fonts/',
+            'expand': true,
+            'flatten': true,
+            'src': '**',
+            'dest': 'app/fonts/'
           }
         ]
       },
       <% } %>
-      dist: {
-        files: [
+      'dist': {
+        'files': [
           {
-            expand: true,
-            dot: true,
-            cwd: 'app',    // From
-            dest: 'dist',  // To
-            src: [
+            'expand': true,
+            'dot': true,
+            'cwd': 'app',    // From
+            'dest': 'dist',  // To
+            'src': [
               '*.{ico,png,txt}',
               '.htaccess',
               //'medias/images/{,*/}*.{jpg,gif,ico,png,txt,webp,svg}',
@@ -242,11 +242,11 @@ module.exports = function(grunt) {
             ]
           }
           <% if (fontAwesome) { %>,{
-            expand: true,
-            flatten: true,
-            src: ['app/bower_components/font-awesome/fonts/**'],
-            dest: 'dist/fonts/',
-            filter: 'isFile'
+            'expand': true,
+            'flatten': true,
+            'src': ['app/bower_components/font-awesome/fonts/**'],
+            'dest': 'dist/fonts/',
+            'filter': 'isFile'
           }
           <% } %>
         ]
@@ -258,14 +258,14 @@ module.exports = function(grunt) {
      * Check the integrity design of code
      * @type {Object}
      */
-    jshint: {
-      options: {
-        reporter: require('jshint-stylish'),
-        jshintrc: '.jshintrc'
+    'jshint': {
+      'options': {
+        'reporter': require('jshint-stylish'),
+        'jshintrc': '.jshintrc'
       },
-      all: [
+      'all': [
         '!Gruntfile.js',
-        'app/js/{,*/}*.js'
+        'app/js/**/*.js'
       ]
     }
 
