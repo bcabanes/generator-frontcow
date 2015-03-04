@@ -1,7 +1,7 @@
 {
     "name": "<%= projectName%>",
     "dependencies": {
-      <% if (fontAwesome) { %> "font-awesome": "4.*", <% } %>
+      "font-awesome": "4.*",
       <% if (foundation) { %> "foundation": "zurb/bower-foundation", <% } %>
       "jquery": "2.*",
       "modernizr": "2.*",

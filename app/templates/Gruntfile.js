@@ -77,22 +77,6 @@ module.exports = function(grunt) {
             'app/css/**/*'
           ]
         }
-      },
-      'dist': {
-        'options': {
-          'port': 5000,
-          'watchTask': true,
-          'injectChanges': false,
-          'server': {
-            'baseDir': './dist',
-            'middleware': [
-              require('connect-history-api-fallback')
-            ]
-          },
-          'files': [
-            'app/*.html',
-          ]
-        }
       }
     },
 
@@ -121,8 +105,8 @@ module.exports = function(grunt) {
     'sass': {
       'options': {
         'includePaths': [
+            <% if (foundation) { %> 'app/bower_components/foundation/scss', <% } %>
           'app/bower_components/font-awesome/scss'
-          <% if (foundation) { %>,'app/bower_components/foundation/scss' <% } else { %> 'app/bower_components/modularized-normalize-scss' <% }%>
         ],
         'outputStyle': 'compressed', // 'nested' (default), 'expanded', 'compact', 'compressed'
         'sourceMap': true
@@ -243,21 +227,13 @@ module.exports = function(grunt) {
    * Initializing the watch, copying styles and start compass.
    * Lunch the local server and open the app in the browser.
    */
-  grunt.registerTask('server', function (target) {
-
-    // $ grunt server:dist
-    if(target === 'dist') {
-      return grunt.task.run(['build', 'browserSync:dist']);
-    }
-
-    grunt.task.run([
-      'clean:server',
-      'copy:fontawesome',
-      'sass:dist',
-      'browserSync:dev',
-      'watch'
-    ]);
-  });
+  grunt.registerTask('server', [
+    'clean:server',
+    'copy:fontawesome',
+    'sass:dist',
+    'browserSync:dev',
+    'watch'
+  ]);
 
   /**
    * BUILD TASK
@@ -268,7 +244,6 @@ module.exports = function(grunt) {
     'copy:dist',
     'useminPrepare',
     'concat:generated',
-    'cssmin:generated',
     'uglify:generated',
     'usemin',
     'concat',

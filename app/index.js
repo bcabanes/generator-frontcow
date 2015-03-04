@@ -42,7 +42,7 @@ FrontCow.prototype.askQuestions = function askQuestions() {
         // Foundation
         type: 'confirm',
         name: 'foundation',
-        message: 'Would you like to include Foundation5? (Fronte-end framework)',
+        message: 'Would you like to include Foundation5? (Frontend framework)',
         default: true
     },{
         // Use polyfill for Foundation 5 (IE*)

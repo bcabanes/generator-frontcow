@@ -45,26 +45,19 @@
           <li>Publishing to dist directory</li>
           <li>Server with LiveReload</li>
           <li>JSHint</li>
-          <% if (fontAwesome) { %><li><i class="fa fa-child"></i> Font Awesome</li><% } %>
+          <li><i class="fa fa-child"></i> Font Awesome</li>
+          <% if (foundation) { %><li>Foundation 5 frontend framework</li><% } %>
           <% if (polyfill) { %><li>Respond polyfill for Foundation 5</li><% } %>
         </ul>
         <h1>Grunt tasks:</h1>
         <ul>
-          <li>'grunt' - watching (Sass, Server with LiveReload)</li>
-          <li>'grunt build' - Sass</li>
-          <li>'grunt validate-js' - JSHint</li>
-          <li>'grunt publish' - dist directory</li>
-          <li>'grunt server-dist' - dist directory (preview only)</li>
+          <li>'grunt server' - to start building something</li>
+          <li>'grunt build' - to make your code ready to production</li>
+          <li>'grunt scan-js' - JSHint</li>
         </ul>
         <hr>
         <h2 class="text-right">
-          <a href="https://github.com/bcabanes/generator-frontcow">
-            <% if (fontAwesome) { %>
-              <i class="fa fa-github"></i>
-            <% }else{ %>
-              github
-            <% } %>
-          </a>
+          <a href="https://github.com/bcabanes/generator-frontcow"><i class="fa fa-github"></i></a>
         </h2>
       </div>
     </div>
