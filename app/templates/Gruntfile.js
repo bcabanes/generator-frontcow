@@ -253,6 +253,7 @@ module.exports = function(grunt) {
     grunt.task.run([
       'clean:server',
       'copy:fontawesome',
+      'sass:dist',
       'browserSync:dev',
       'watch'
     ]);
@@ -263,6 +264,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('build', [
     'clean:dist',
+    'sass:dist',
     'copy:dist',
     'useminPrepare',
     'concat:generated',
