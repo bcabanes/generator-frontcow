@@ -28,6 +28,23 @@ module.exports = function(grunt) {
      * Watch files for changes and runs tasks based on the changed files
      * @type {Object}
      */
+    'autoprefixer': {
+      'options': {
+        'map': true,
+        'browsers': [
+          'ie 9', 'ie 10',
+          'last 2 versions'
+        ]
+      },
+      'app': {
+      'src': 'app/css/app.min.css'
+      }
+    },
+
+    /**
+     * Watch files for changes and runs tasks based on the changed files
+     * @type {Object}
+     */
     watch: {
       options: {
         debounceDelay: 200
