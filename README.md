@@ -7,15 +7,18 @@
 ##What is FrontCow
 Cute logo, big time saving... When it comes to make a website you have to set your workflow, prepare your libraries, your files structures. FrontCow handle all this to save your time, lunch it and go grab a coffee, when you'll be back, you're ready to work.
 
+###Composition
+FrontCow uses some of the most used libraries to give you power and time saving.
+
 #### Foundation 5
 FrontCow use the amazing [Foundation5 front-end framework](http://foundation.zurb.com/) powered by Zurb, which is "The most advanced responsive front-end framework in the world".
 
 #### FontAwesome
-FrontCow gives you the possibility to add  [FontAwesome](http://fortawesome.github.io/Font-Awesome/), the popular iconic webfont.
+FrontCow includes  [FontAwesome](http://fortawesome.github.io/Font-Awesome/), the popular iconic webfont.
 
 #### BrowserSync
 
-FrontCow use [BrowserSync](http://www.browsersync.io/) to build a simple static server highly customisable.
+FrontCow uses [BrowserSync](http://www.browsersync.io/) to build a simple static server highly customisable.
 
 #### Atomic Design
 FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) architecture in mind, so it will create and organize your SCSS in a particulare file system:
@@ -63,9 +66,8 @@ FrontCow is developed with the [Atomic Design](http://bradfrostweb.com/blog/post
 - Template inspiration from [HTML5 Boilerplate](http://html5boilerplate.com/)
 - Feature detection with [Modernizr](http://modernizr.com/)
 - JavaScript Linting with [JSHint](http://www.jshint.com/)
-- Built in preview server with LiveReload
+- Built in preview server with BrowserSync
 - [.editorconfig](http://editorconfig.org/) for consistent coding styles within text editors
-- JavaScript unit testing with [Jasmine](http://jasmine.github.io/)
 - Automatic build process that includes concatenation, image optimization, CSS and HTML minification, and JS uglification.
 - [Sourcemaps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/) for JavaScript and either SCSS.
 
@@ -101,22 +103,6 @@ The gruntfile provide a complete set of tools to help you to do your work.
 
 Grunt task starts the workflow with SASS watch & build, create a server and open your default browser to be ready to work.
 
-##### Using font-awesome
-
-If you said yes to use font-awesome you have to copy the font first (one time) with the following command:
-
-```bash
-$ grunt copy:fontawesome
-```
-
-##### Before start the server
-
-Before start the server, you can directly create the base css with the following command:
-
-```bash
-$ grunt sass:dist
-```
-
 ##### Start the server
 
 To start the server, just run the following command:
@@ -124,15 +110,6 @@ To start the server, just run the following command:
 ```bash
 $ grunt server
 ```
-
-### Distribution
-
-To start a loca server with the dist files, run the following command:
-
-```bash
-$ grunt server:dist
-```
-_This command will call the build command in its processes._
 
 
 To just build the `dist` files, run the following command:
@@ -146,7 +123,7 @@ $ grunt build
 To run the jsHint, just run the following command:
 
 ```bash
-$ grunt validate-js
+$ grunt scan-js
 ```
 
 
